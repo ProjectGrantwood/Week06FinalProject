@@ -37,6 +37,6 @@ public class Card  {
     // methods:
     
     public void describe() {
-        System.out.println(this.name + ", with a value of " + this.value);
+        System.out.println((this.name == "Joker" ? "A " : "The ") + this.name + ", with a value of " + this.value);
     }
 }
