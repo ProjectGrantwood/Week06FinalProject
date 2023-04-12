@@ -3,13 +3,14 @@ package Week06FinalProject;
 import java.util.*;
 
 public class Player {
-    // Public instance fields:
+    
+    // PUBLIC FIELD INITIALIZATIONS
 
     public String name;
     public List<Card> hand;
     public int score;
 
-    // Constructor:
+    // CONSTRUCTORS
 
     public Player(String name) {
         this.name = name;
@@ -17,7 +18,7 @@ public class Player {
         this.score = 0;
     }
 
-    // Public instance methods:
+    // PUBLIC METHODS
 
     public void describe() {
         System.out.println(this.name + " has the following cards in hand:");
@@ -25,17 +26,20 @@ public class Player {
         handIterator.forEachRemaining((card) -> card.describe());
     }
 
+    // remove the top card of the Deck provided as a parameter and add it to the player's hand
     public void draw(Deck bicycles) {
         Card nextCard = bicycles.draw();
         this.hand.add(nextCard);
     }
 
+    // remove the top card of the player's hand and return it
     public Card flip() {
         Card topCard = this.hand.get(0);
         this.hand.remove(topCard);
         return topCard;
     }
 
+    // increase the player's score
     public void incrementScore() {
         this.score += 1;
     }

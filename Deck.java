@@ -4,37 +4,37 @@ import java.util.*;
 
 public class Deck {
 
-    // Static fields (no need to keep these private/protected, hence public).
+    // STATIC FIELDS
 
-    public static String[] valueNames = { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+    private static String[] valueNames = { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
             "Jack", "Queen", "King", "Ace" };
-    public static String[] suitNames = { "Spades", "Clubs", "Hearts", "Diamonds" };
-    public static int[] cardValues = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+    private static String[] suitNames = { "Spades", "Clubs", "Hearts", "Diamonds" };
+    private static int[] cardValues = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
 
-    // Public instance fields:
+    // PUBLIC FIELD INITIALIZATIONS
 
     public List<Card> cards = new ArrayList<Card>();
-    public Iterator<Card> drawIterator = this.cards.iterator();
 
-    // Constructor:
+    // CONSTRUCTORS
 
     public Deck() {
 
-        // add all standard playing cards
-
+        // add all standard playing cards with nested loops:
+        // one for all the suits, the other for the values.
         for (String suit : Deck.suitNames) {
             for (int i = 0; i < Deck.valueNames.length; i++) {
                 this.cards.add(new Card(valueNames[i] + " of " + suit, Deck.cardValues[i]));
             }
         }
 
+        // Don't forget the jokers!
         for (int i = 0; i < 2; i++) {
             this.cards.add(new Card("Joker", 0));
         }
 
     }
 
-    // Public methods:
+    // PUBLIC METHODS:
 
     public void shuffle() {
         Collections.shuffle(this.cards);

@@ -2,19 +2,19 @@ package Week06FinalProject;
 
 public class Card {
 
-    // Fields:
+    // PRIVATE FIELD INITIALIZATIONS:
 
     private int value;
     private String name;
 
-    // Constructor:
+    // CONSTRUCTORS:
 
     public Card(String name, int val) {
         this.name = name;
         this.value = val;
     }
 
-    // Getters:
+    // GETTERS:
 
     public int getValue() {
         return this.value;
@@ -24,7 +24,7 @@ public class Card {
         return this.name;
     }
 
-    // Setters:
+    // SETTERS:
 
     public void setValue(int val) {
         this.value = val;
@@ -34,9 +34,9 @@ public class Card {
         this.name = name;
     }
 
-    // methods:
+    // PUBLIC METHODS:
 
     public void describe() {
-        System.out.println((this.name == "Joker" ? "A " : "The ") + this.name + ", with a value of " + this.value);
+        System.out.println((this.name == "Joker" ? "a " : "the ") + this.name + ", with a value of " + this.value);
     }
 }
